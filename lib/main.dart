@@ -28,7 +28,6 @@ class HomePage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       body: Container(
-        constraints: const BoxConstraints(maxWidth: 700),
         padding: const EdgeInsets.all(16),
         decoration: const BoxDecoration(
             gradient: LinearGradient(
@@ -68,6 +67,7 @@ class HomePage extends StatelessWidget {
                     text:
                         "By tapping Create Account or Sign In, you agree to our Terms. learn hoe we process your data in our ",
                     style: TextStyle(
+                      color: Colors.white,
                       fontSize: 12,
                     ),
                     children: <TextSpan>[
@@ -75,32 +75,46 @@ class HomePage extends StatelessWidget {
                           text: "Privacy Policy",
                           style: TextStyle(
                             fontWeight: FontWeight.bold,
+                            color: Colors.white,
                             decoration: TextDecoration.underline,
                           )),
-                      TextSpan(text: ' and '),
+                      TextSpan(
+                          text: ' and ',
+                          style: TextStyle(
+                            color: Colors.white,
+                          )),
                       TextSpan(
                           text: "Cookies Policy",
                           style: TextStyle(
                             fontWeight: FontWeight.bold,
+                            color: Colors.white,
                             decoration: TextDecoration.underline,
                           )),
                       TextSpan(text: '.'),
                     ],
                   ),
                 )),
-            const RoundButtons(
-                image: 'apple_logo.svg', text: 'SIGN IN WITH APPLE'),
-            const SizedBox(
-              height: 8,
+            Container(
+              constraints: const BoxConstraints(maxWidth: 700),
+              child: Column(
+                children: const [
+                  RoundButtons(
+                      image: 'apple_logo.svg', text: 'SIGN IN WITH APPLE'),
+                  SizedBox(
+                    height: 8,
+                  ),
+                  RoundButtons(
+                      image: 'facebook_logo.svg',
+                      text: 'SIGN IN WITH FACEBOOK'),
+                  SizedBox(
+                    height: 8,
+                  ),
+                  RoundButtons(
+                      icon: FontAwesomeIcons.solidComment,
+                      text: 'SIGN IN WITH PHONE NUMBER'),
+                ],
+              ),
             ),
-            const RoundButtons(
-                image: 'facebook_logo.svg', text: 'SIGN IN WITH FACEBOOK'),
-            const SizedBox(
-              height: 8,
-            ),
-            const RoundButtons(
-                icon: FontAwesomeIcons.solidComment,
-                text: 'SIGN IN WITH PHONE NUMBER'),
             const Padding(
               padding: EdgeInsets.only(bottom: 30, top: 24),
               child: Text(
